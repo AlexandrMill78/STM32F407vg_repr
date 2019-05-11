@@ -1,8 +1,6 @@
 #include "mcu_ini.h"
 
-//-----------------------------------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------------------------------
+//-----------------------------LEDs_ini(void)----------------------------------------------
 void LEDs_ini(void)
 {
 	GPIO_InitTypeDef GPIO_init_LED;
@@ -17,7 +15,7 @@ void LEDs_ini(void)
 		
 	GPIO_Init(GPIOD, &GPIO_init_LED); // ??? &
 }
-//-------------------------------------------------------------------------------------------------------------------
+//---------------------------------------Button_ini (void)---------------------------------------------------------
 void Button_ini (void)
 {
 	GPIO_InitTypeDef GPIO_init_Button;
@@ -32,7 +30,24 @@ void Button_ini (void)
 		
 	GPIO_Init(GPIOA, &GPIO_init_Button); // ??? PortA !!
 }
-//-------------------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------Laser_Sensor_ini (void)-------------------------------------------------------
+void Laser_Sensor_ini (void)
+{
+	GPIO_InitTypeDef GPIO_init_Laser_Sensor;
+	
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); // initialisation timing (RCC) for PortA !! (stm32f4xx_rcc.h)
+	
+	GPIO_init_Laser_Sensor.GPIO_Pin = GPIO_Pin_4; // initialisation Pin A4 (Laser_Sensor)
+	GPIO_init_Laser_Sensor.GPIO_Mode = GPIO_Mode_IN; //                                      !   Input push-pull
+	GPIO_init_Laser_Sensor.GPIO_Speed = GPIO_Low_Speed;
+	GPIO_init_Laser_Sensor.GPIO_OType = GPIO_OType_PP; // Output push-pull GPIO_OType_PP(Ground to Pin)or GPIO_OType_OD
+	GPIO_init_Laser_Sensor.GPIO_PuPd = GPIO_PuPd_NOPULL; // (if.. pin is input)
+		
+	GPIO_Init(GPIOA, &GPIO_init_Laser_Sensor); // ??? PortA !!
+}
+
+//------------------------------------USART2_ini (void)-----------------------------------------------------------
 void USART2_ini (void)
 {
 	GPIO_InitTypeDef GPIO_Init_USART;
@@ -49,7 +64,7 @@ void USART2_ini (void)
 	
 	//void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO_AF);
 	
-	// --------------description to AF - alternative function of Pin ---------------------- 
+	// --------------description to AF - alternative function of Pin --------------------- 
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);
 	

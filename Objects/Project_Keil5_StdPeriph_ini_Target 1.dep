@@ -1,6 +1,6 @@
 Dependencies for Project 'Project_Keil5_StdPeriph_ini', Target 'Target 1': (DO NOT MODIFY !)
-F (.\User\src\main.c)(0x5CD46FE7)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\STM32F4xx_StdPeriph_Driver -I .\STM32F4xx_StdPeriph_Driver\src -I .\STM32F4xx_StdPeriph_Driver\inc -I .\CMSIS\Include -I .\CMSIS\Device\ST\STM32F4xx\Include -I .\CMSIS\Device\ST\STM32F4xx\Source -I .\User\inc -I .\User\src-I.\RTE\_Target_1-IF:\STM_32\Keil_MDK-ARM5.27\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (.\User\inc\main.h)(0x5CD45F40)
+F (.\User\src\main.c)(0x5CD70378)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\STM32F4xx_StdPeriph_Driver -I .\STM32F4xx_StdPeriph_Driver\src -I .\STM32F4xx_StdPeriph_Driver\inc -I .\CMSIS\Include -I .\CMSIS\Device\ST\STM32F4xx\Include -I .\CMSIS\Device\ST\STM32F4xx\Source -I .\User\inc -I .\User\src-I.\RTE\_Target_1-IF:\STM_32\Keil_MDK-ARM5.27\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\User\inc\main.h)(0x5CD6F3B6)
 I (.\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5CD33638)
 I (.\CMSIS\Include\core_cm4.h)(0x581CC64D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F137E)
@@ -35,10 +35,10 @@ I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h)(0x5821F050)
 I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h)(0x581CC67B)
 I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h)(0x581CC67B)
-I (.\User\inc\mcu_ini.h)(0x5CD45F40)
+I (.\User\inc\mcu_ini.h)(0x5CD6F3B6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F137C)
-F (.\User\src\mcu_ini.c)(0x5CD32A11)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\STM32F4xx_StdPeriph_Driver -I .\STM32F4xx_StdPeriph_Driver\src -I .\STM32F4xx_StdPeriph_Driver\inc -I .\CMSIS\Include -I .\CMSIS\Device\ST\STM32F4xx\Include -I .\CMSIS\Device\ST\STM32F4xx\Source -I .\User\inc -I .\User\src-I.\RTE\_Target_1-IF:\STM_32\Keil_MDK-ARM5.27\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\mcu_ini.o --omf_browse .\objects\mcu_ini.crf --depend .\objects\mcu_ini.d)
-I (.\User\inc\mcu_ini.h)(0x5CD45F40)
+F (.\User\src\mcu_ini.c)(0x5CD710BB)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\STM32F4xx_StdPeriph_Driver -I .\STM32F4xx_StdPeriph_Driver\src -I .\STM32F4xx_StdPeriph_Driver\inc -I .\CMSIS\Include -I .\CMSIS\Device\ST\STM32F4xx\Include -I .\CMSIS\Device\ST\STM32F4xx\Source -I .\User\inc -I .\User\src-I.\RTE\_Target_1-IF:\STM_32\Keil_MDK-ARM5.27\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="527" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\mcu_ini.o --omf_browse .\objects\mcu_ini.crf --depend .\objects\mcu_ini.d)
+I (.\User\inc\mcu_ini.h)(0x5CD6F3B6)
 I (.\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5CD33638)
 I (.\CMSIS\Include\core_cm4.h)(0x581CC64D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F137E)

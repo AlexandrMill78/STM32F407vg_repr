@@ -6,6 +6,8 @@
 
 void LEDs_ini(void);  // function prototype 
 void Button_ini(void);
-void USART2_ini (void);
+void USART2_ini(void);
+
+void Laser_Sensor_ini(void);
 
 #endif

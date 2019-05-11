@@ -16,6 +16,8 @@ uint8_t button_check = 0;
 uint8_t button_click = 1;
 
 char str[30];
+void SendStrtoPS(char* str_p, uint16_t count);// There war conflict of declaration (without)
+uint8_t Laser_status = 0;
 
 //--------------------------void SysTick_Handler(void)-----------------------------------------------
 
@@ -25,7 +27,7 @@ void SysTick_Handler(void)  // interrupt 1 ms, and function call
 	{
 		Mode_count--;
 	}
-	//----------Button is't button ! ----------
+	//----------Button--------------------------
 	if (BUTTON_READ() == 1)
 	{
 		if (Button_count < 5)
@@ -48,6 +50,13 @@ void SysTick_Handler(void)  // interrupt 1 ms, and function call
 				Button_status = DISABLE;	// normal case, button is output
 			}
 		}
+	//----------Laser_Sensor----------------------
+	if (LASER_SENSOR_READ() == 0)// NORMAL Output LASER_SENSOR_READ() is PA4 = "1"
+		{
+			Laser_status = ENABLE;
+		} else {
+				Laser_status = DISABLE;
+			}
 }
 //-------------------------------delay_button()------------------------------------------------------
 void delay_button(void)
@@ -55,7 +64,7 @@ void delay_button(void)
 	if (Button_status == ENABLE)
 	{
 		//GPIO_ToggleBits(GPIOD, GPIO_Pin_14);		
-		DELAY = 50;
+		DELAY = 100;
 		//USART_SendData(USART2, 0xFF); ////void USART_SendData(USART_TypeDef* USARTx, uint16_t Data);
 		SendStrtoPS(str, 5); // count is number of symbols
 	} else{
@@ -75,7 +84,7 @@ void switch_button(void)
 			DELAY = 0;
 		} else
 			{
-				DELAY = 50;
+				DELAY = 100;
 			}
 	}
 }
@@ -105,6 +114,8 @@ int main(void)
 	Button_ini();							// inizialisation ! does't forget !!
 	USART2_ini();
 	
+	Laser_Sensor_ini();
+	
 	//char str[30];
 	sprintf(str, "Hello World");
 	//SendStrtoPS(str);
@@ -113,7 +124,13 @@ int main(void)
 	{	
 		delay_button();				//      only put-button
 		//switch_button();				//      switch-button
-				
+		
+	
+	if (Laser_status == ENABLE)  // Laser_status == ENABLE
+	{
+		DELAY = 100;
+	}
+		
 		if (Mode == MODE_RED)
 		{
 			RED_ON();

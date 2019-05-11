@@ -28,4 +28,6 @@
 
 #define BUTTON_READ()		GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0)
 
+#define LASER_SENSOR_READ()		GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4)
+
 #endif
