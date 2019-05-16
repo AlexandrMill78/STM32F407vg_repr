@@ -19,6 +19,12 @@ char str[30];
 void SendStrtoPS(char* str_p, uint16_t count);// There war conflict of declaration (without)
 uint8_t Laser_status = 0;
 
+uint16_t time_counter = 0;
+float time_counter_G = 0;
+float G = 0;
+
+uint8_t FLAG_go = 0;
+
 //--------------------------void SysTick_Handler(void)-----------------------------------------------
 
 void SysTick_Handler(void)  // interrupt 1 ms, and function call 
@@ -54,9 +60,20 @@ void SysTick_Handler(void)  // interrupt 1 ms, and function call
 	if (LASER_SENSOR_READ() == 0)// NORMAL Output LASER_SENSOR_READ() is PA4 = "1"
 		{
 			Laser_status = ENABLE;
+			RED_ON();
 		} else {
 				Laser_status = DISABLE;
+				RED_OFF();
 			}
+		
+	/*/--------- g=9.8 time_counter -----------------------------
+		if (time_counter > 65534)
+		{
+			time_counter = 0;
+		} else {
+			time_counter++;		
+			}	*/
+			time_counter++;	
 }
 //-------------------------------delay_button()------------------------------------------------------
 void delay_button(void)
@@ -66,7 +83,7 @@ void delay_button(void)
 		//GPIO_ToggleBits(GPIOD, GPIO_Pin_14);		
 		DELAY = 100;
 		//USART_SendData(USART2, 0xFF); ////void USART_SendData(USART_TypeDef* USARTx, uint16_t Data);
-		SendStrtoPS(str, 5); // count is number of symbols
+		//SendStrtoPS(str, 5); // count is number of symbols
 	} else{
 		DELAY = 0;
 	}
@@ -85,6 +102,9 @@ void switch_button(void)
 		} else
 			{
 				DELAY = 100;
+				time_counter = 0;// time to g=9.8
+				GREEN_ON();
+				FLAG_go = 1;
 			}
 	}
 }
@@ -116,22 +136,27 @@ int main(void)
 	
 	Laser_Sensor_ini();
 	
-	//char str[30];
-	sprintf(str, "Hello World");
-	//SendStrtoPS(str);
+	sprintf(str, "Measuring G=9.8 by h = 1 meter "); // Send_buffer ??
+	SendStrtoPS(str, 30);
 	
 	while(1)
 	{	
-		delay_button();				//      only put-button
-		//switch_button();				//      switch-button
+		//delay_button();				//      only put-button
+		switch_button();				//      switch-button
 		
-	
-	if (Laser_status == ENABLE)  // Laser_status == ENABLE
-	{
-		DELAY = 100;
-	}
+		if (Laser_status == ENABLE && FLAG_go == 1)  // !! Laser_status == ENABLE, G=9.8 to COM Port
+		{
+			BLUE_ON();
+			//DELAY = 1000; 					   // 1 sec
+			time_counter_G = (float)time_counter/1000.0; /// doesn't work !!
+			G = 1/(time_counter_G*2);
+			//G = 9.8;
+			sprintf(str, "%5.2d", time_counter);//  G ???????????  test;  time_counter_G is... 3.0 or 5.0  !!
+			SendStrtoPS(str, 5);
+			break;
+		}
 		
-		if (Mode == MODE_RED)
+		/*if (Mode == MODE_RED)
 		{
 			RED_ON();
 			if (Mode_count == 0)
@@ -170,6 +195,6 @@ int main(void)
 				Mode = MODE_RED;			
 				Mode_count = DELAY;
 			}
-		}
+		}*/
 	}
 }

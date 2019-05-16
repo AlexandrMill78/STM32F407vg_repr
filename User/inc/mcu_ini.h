@@ -3,6 +3,8 @@
 
 #include "stm32f4xx.h"                  // Device header
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 void LEDs_ini(void);  // function prototype 
 void Button_ini(void);

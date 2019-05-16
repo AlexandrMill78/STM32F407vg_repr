@@ -22,15 +22,20 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 F:\STM_32\GitHub_repr\STM32F407vg_repr\Project_Keil5_StdPeriph_ini.uvprojx
-Project File Date:  05/01/2019
+Project File Date:  05/11/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling mcu_ini.c...
+compiling main.c...
+User\src\main.c(151): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  			time_counter_G = (float)time_counter/1000.0;
+User\src\main.c(154): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  			sprintf(str, "%5.2d", time_counter_G);//  G ???????????  test;  time_counter_G is... 3.0 or 5.0  !!
+User\src\main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=2532 RO-data=424 RW-data=52 ZI-data=1668  
-".\Objects\Project_Keil5_StdPeriph_ini.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=4456 RO-data=424 RW-data=64 ZI-data=1664  
+".\Objects\Project_Keil5_StdPeriph_ini.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 

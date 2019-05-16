@@ -36,3 +36,5 @@
 .\objects\mcu_ini.o: .\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h
 .\objects\mcu_ini.o: .\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h
 .\objects\mcu_ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\mcu_ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mcu_ini.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
